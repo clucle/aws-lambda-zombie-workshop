@@ -93,7 +93,7 @@ CloudFromation 만들 때, 이미 Cognito 통합 인증 서비스를 생성하�
 
 ![Navigate to the Cognito service](/Images/Cognito-Step1.png)
 
-Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **us-east-1 (Virginia), us-west-2 (Oregon), eu-west-1 (Ireland), eu-central-1 (Frankfurt), ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ** 이외에서 CloudFormation을 실행하셨다면, 오른쪽 상단의 리전을 **us-east-1 (Virginia)**로 변경 후, Cognito 서비스로 들어가시기 바랍니다. 애플리케이션은 여러분이 만든 리전에 존재하고 있지만, 사용자 인증은 us-east-1의 Cognito 서비스를 이용하게 됩니다. 만약 위에 목록에 해당하는 리전에서 CloudFormation 스택을 실행하셨다면, 그 리전의 Cognito 서비스에서 진행하시면 됩니다. 
+Cognito User Pools는 모든 리전에서 제공되지 않습니다. 만약  **us-east-1 (Virginia), us-west-2 (Oregon), eu-west-1 (Ireland), eu-central-1 (Frankfurt), ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul),** 이외에서 CloudFormation을 실행하셨다면, 오른쪽 상단의 리전을 **us-east-1 (Virginia)** 로 변경 후, Cognito 서비스로 들어가시기 바랍니다. 애플리케이션은 여러분이 만든 리전에 존재하고 있지만, 사용자 인증은 us-east-1의 Cognito 서비스를 이용하게 됩니다. 만약 위에 목록에 해당하는 리전에서 CloudFormation 스택을 실행하셨다면, 그 리전의 Cognito 서비스에서 진행하시면 됩니다.
 
 콘솔에서 **Manage your User Pools**를 선택합니다. 이제 채팅 앱에서 사용할 사용자 디렉토리를 만들도록 하겠습니다. 
 
@@ -242,7 +242,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 4\. **Integration Request** 박스를 클릭합니다.
 
-5\. "Integration Type" 밑에 **Lambda Function.**를 선택합니다.
+5\. "Integration Type" 밑에 **Lambda Function.** 을 선택합니다.
 
 *   현재 본 API 메소드는 "MOCK" 연동으로 설정되어 있습니다. MOCK 연동은 샘플 가짜 데이터를 테스트할 수 있도록 API 백엔드를 연동해 두어 테스트를 하는데 유용합니다. 현재 MOCK 연동 설정을 삭제하고, 실제 DynamoDB 테이블에 조회를 할 Lambda 함수를 연결하면 됩니다.
 
@@ -291,7 +291,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 20\. "Actions" 박스를 클릭하고, 드롭다운에서 "Enable CORS"를 선택합니다.
 
-21\. **Enable CORS and replace ...**을 누른 후, 다음 창에서 **Yes, replace existing value**를 눌러 기존의 설정을 변경합니다. 아래와 같이 CORS 옵션에 모든 체크 부분에 녹색으로 보여야 합니다.
+21\. **Enable CORS and replace ...** 를 누른 후, 다음 창에서 **Yes, replace existing value**를 눌러 기존의 설정을 변경합니다. 아래와 같이 CORS 옵션에 모든 체크 부분에 녹색으로 보여야 합니다.
 ![talker resource](/Images/Typing-Step21.png)
 
 * 만약, 모든 체크 마크가 녹색이 아니면 위에서 진행한 HTTP 상태 코드 200을 추가하는 과정에서 뭔가 누락된 것입니다. 위의 단계를 다시 확인하셔서 POST, GET, OPTIONS 메소드의 200 상태 코드를 추가하세요.
@@ -355,7 +355,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 12\. **Create a Lambda function**를 선택한 후, 왼쪽 메뉴에서 **Configure function**을 선택합니다.
 
-13\. 이제 함수명에는 **"[Your CloudFormation stack name]-TwilioProcessing"**라고 적고, "Runtime"은 **Node.js 4.3**을 선택합니다. 이제 Github 레포지터리에서 **TwilioProcessing.js** 파일을 찾아서 전체 코드를 복사한 후, Lambda 코드 에디터에 붙여넣습니다. 코드 중에서 [line 8](/Twilio/TwilioProcessing.js#L8)에는 몇 가지 "API" 환경 변수들을 선언해야 합니다. API.endpoint는 "INSERT YOUR API GATEWAY URL HERE INCLUDING THE HTTPS://"라고 적혀 있는데, 여기에 API Gateway의 전체 도메인 명을 넣습니다. 예를 들어, "https://xxxxxxxx.execute-api.us-west-2.amazonaws.com"의 형식입니다.
+13\. 이제 함수명에는 **"[Your CloudFormation stack name]-TwilioProcessing"** 라고 적고, "Runtime"은 **Node.js 4.3**을 선택합니다. 이제 Github 레포지터리에서 **TwilioProcessing.js** 파일을 찾아서 전체 코드를 복사한 후, Lambda 코드 에디터에 붙여넣습니다. 코드 중에서 [line 8](/Twilio/TwilioProcessing.js#L8)에는 몇 가지 "API" 환경 변수들을 선언해야 합니다. API.endpoint는 "INSERT YOUR API GATEWAY URL HERE INCLUDING THE HTTPS://"라고 적혀 있는데, 여기에 API Gateway의 전체 도메인 명을 넣습니다. 예를 들어, "https://xxxxxxxx.execute-api.us-west-2.amazonaws.com"의 형식입니다.
 
 **API.region**에는 리전 코드도 넣어야 합니다. CloudFormation을 실행한 리전의 코드를 넣습니다. (예: us-west-2)
 
@@ -363,7 +363,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 * 본 워크샵의 대부분 함수는 Nodejs 0.10으로 작성되었으나, Node 버전과 상관없이 동작합니다. 향후에 NodeJS 4.3에 맞는 코드로 업그레이드 할 예정입니다.
 
-14\. Lambda 함수 코드 붙여 넣기 및 속성값 설정이 끝났으면, **Lambda function handler and role** 항목에서 **Choose an existing role**를 선택하고, 드롭 다운 메뉴에서 기존의 **Role** 중에 **[Your stack name]-ZombieLabLambdaRole...**를 선택 합니다.
+14\. Lambda 함수 코드 붙여 넣기 및 속성값 설정이 끝났으면, **Lambda function handler and role** 항목에서 **Choose an existing role**를 선택하고, 드롭 다운 메뉴에서 기존의 **Role** 중에 **[Your stack name]-ZombieLabLambdaRole...** 을 선택 합니다.
 
 15\. **timeout** 에는 30초를 넣고, 나머지 값들은 그대로 둡니다. 이제 **Next**를 눌러, 리뷰 페이지에서 **Create function**을 선택하여, 함수 작성을 완료합니다.
 
@@ -458,9 +458,9 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 11\. **Blank Function 박스**를 선택합니다..
 
-12\. **Configure Triggers** 설정 부분에서는 DynamoDB를 선택하고, **messages**라는 DynamoDB table을 선택합니다. 아마 **"[Your CloudFormation stack name]-messages"**로 보일 것입니다. **Batch size**를 **5**로 설정하고, **Starting position**을 **Lastest**로 선택하고, **Enable trigger** 체크박스를 선택합니다.이제 "Next" 버튼을 누릅니다.  
+12\. **Configure Triggers** 설정 부분에서는 DynamoDB를 선택하고, **messages**라는 DynamoDB table을 선택합니다. 아마 **"[Your CloudFormation stack name]-messages"** 로 보일 것입니다. **Batch size**를 **5**로 설정하고, **Starting position**을 **Lastest**로 선택하고, **Enable trigger** 체크박스를 선택합니다.이제 "Next" 버튼을 누릅니다.
 
-13\. 함수명은 **"[Your CloudFormation stack name]-ESsearch"**와 같이 넣으시고, Runtime은 Node.js 4.3를 선택합니다. 설명은 간단히 원하는대로 입력하셔도 됩니다. 
+13\. 함수명은 **"[Your CloudFormation stack name]-ESsearch"** 와 같이 넣으시고, Runtime은 Node.js 4.3를 선택합니다. 설명은 간단히 원하는대로 입력하셔도 됩니다.
 
 14\. 이제 Github의 "ElasticsearchLambda" 폴더에 있는 ZombieWorkshopSearchIndexing.js 파일을 복사하여 Lambda 함수를 만듭니다.
 
@@ -470,7 +470,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 * 클러스터 설정이 완료되고 "Active" 상태에서 본 과정을 진행해야 합니다.
 
-16\. 이제 Lambda 함수에 IAM 역할을 지정할 차례입니다. **Create new Role from template(s)**을 선택한 후, **"[Your CloudFormation stack name]-ZombieLabLambdaDynamoESRole"** 처럼 이름을 넣고 **Elasticsearch permissions** Role Template를 선택합니다.
+16\. 이제 Lambda 함수에 IAM 역할을 지정할 차례입니다. **Create new Role from template(s)** 를 선택한 후, **"[Your CloudFormation stack name]-ZombieLabLambdaDynamoESRole"** 처럼 이름을 넣고 **Elasticsearch permissions** Role Template를 선택합니다.
 
 17\. "Timeout"항목에서는 값을 **1** 분으로 바꿉니다. Lambda 함수가 타임아웃 전에 메시지 처리를 완료하도록 하게끔 하기 위해 약간 길게 설정합니다. 나머지 값들은 그대로 두고 **Next**를 눌러 Review 페이지에서 **Create function**을 눌러 함수를 만듭니다.
 
@@ -528,7 +528,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 * 이제 함수 코드에서는 Slack 연동을 위해 토큰 유효성 확인을 하고, 완료되면 DynamoDB User 테이블에서 Slack Username 및 Slack Team Domain명이 사용자와 맞는지 확인합니다. 이들 값이 Users 테이블과 일치하면, 생존자로 등록된 사람이 메시지를 보낸다는 것을 확인하고 Slack 메시지를 파싱하여, 이를 **/message** 엔드포인트로 보내 채팅창에 전달합니다.
 
-13\. 함수 코드를 복사하고, 모든 변수 설정이 완료되면, 아래로 스크롤 하여 **Lambda function handler and role**에서 **Choose an existing role**를 눌러  **[Your stack name]-ZombieLabLambdaRole...**와 유사한 역할을 선택합니다. 간단하게 진행하기 위해, 모든 Lambda 함수에서 같은 역할을 재사용합니다.
+13\. 함수 코드를 복사하고, 모든 변수 설정이 완료되면, 아래로 스크롤 하여 **Lambda function handler and role**에서 **Choose an existing role**를 눌러  **[Your stack name]-ZombieLabLambdaRole...** 와 유사한 역할을 선택합니다. 간단하게 진행하기 위해, 모든 Lambda 함수에서 같은 역할을 재사용합니다.
 
 14\. Advanced 설정에서 **Timeout**을 **30**초로 설정하고 **Next**를 누릅니다.
 
@@ -698,7 +698,7 @@ TopicArn: "ENTER YOUR SNS TOPIC ARN HERE"
 * SNS 토픽 ARN이 AWS로 부터 받은 것이면, 여러분의 계정에서는 보이지 않습니다. 다른 계정의 것이라면, 직접 타이핑하셔야 합니다.  
 4\. "Configure Function" 화면에서, 이름은 "[Your CloudFormation Stack Name]-sensor"와 비슷하게 적고, Github 레포지터리 lambda 폴더의 **exampleSNSFunction.js** 파일을 엽니다. [코드 경로](/zombieSensor/lambda/exampleSNSFunction.js)에서 파일을 열어, 소스 코드를 복사해서 코드 편집기에 붙여 넣기를 합니다.
 
-Lambda 함수 편집기에 붙여 넣을 때, 소스 코드 상의 몇 가지 변수를 수정해야 합니다. **API** 항목에서 **API.endpoint**에는 /zombie/message/post API 엔드포인트인 **https://xxxxxxxx.execute-api.us-west-2.amazonaws.com**와 같은 주소를 넣습니다. 여러분이 만든 API Gateway 콘솔 상 만든 API의 "Invoke URL"입니다. ".com"이후에 다른 경로는 넣으시면 안됩니다. **API.region** 변수는 여러분이 사용 중인 리전 코드를 넣습니다.
+Lambda 함수 편집기에 붙여 넣을 때, 소스 코드 상의 몇 가지 변수를 수정해야 합니다. **API** 항목에서 **API.endpoint**에는 /zombie/message/post API 엔드포인트인 **https://xxxxxxxx.execute-api.us-west-2.amazonaws.com** 와 같은 주소를 넣습니다. 여러분이 만든 API Gateway 콘솔 상 만든 API의 "Invoke URL"입니다. ".com"이후에 다른 경로는 넣으시면 안됩니다. **API.region** 변수는 여러분이 사용 중인 리전 코드를 넣습니다.
 
 5\. **Role**에서는 **Choose an existing role**를 선택하고 드롭 다운 메뉴에서 기존에 사용 해왔던 ZombieLabLambdaRole을 선택합니다. 이름이 "[Your CloudFormation stack name]-ZombieLabLambdaRole"와 유사합니다.
 
